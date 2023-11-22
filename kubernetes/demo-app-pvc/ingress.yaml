@@ -4,7 +4,7 @@ metadata:
   name: demoapp
 spec:
   rules:
-    - host: <cluster-public-ip>.nip.io
+    - host: cluster-public-ip.nip.io
       http:
         paths:
         - path: /
