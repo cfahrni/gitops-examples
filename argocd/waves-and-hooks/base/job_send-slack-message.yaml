@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: send-slack-message
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: send-slack-message
+        image: busybox
+        command: ["/bin/sh"]
+        args: ["-c", "echo Sync succeeded; sleep 10"]
+      restartPolicy: OnFailure

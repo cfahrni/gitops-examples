@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - cm_ca-inject.yaml
+  - deployment_database.yaml
+  - deployment_webapp.yaml
+  - job_db-migration.yaml
+  - job_disable-maintenance-page.yaml
+  - job_enable-maintenance-page.yaml
+  - job_send-slack-message.yaml
+  - ns_demo-kustomize.yaml
