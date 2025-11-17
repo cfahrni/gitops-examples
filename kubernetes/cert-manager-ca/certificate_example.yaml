@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: foobar-tls
+  namespace: foobar
+spec:
+  subject:
+    organizations:
+      - Foobar
+  commonName: 'demo.foobar.ch'
+  dnsNames:
+  - 'demo.foobar.ch'
+  issuerRef:
+    kind: ClusterIssuer
+    name: selfsigned-issuer
+  secretName: foobar-tls
+  

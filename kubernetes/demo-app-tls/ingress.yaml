@@ -2,6 +2,8 @@ kind: Ingress
 apiVersion: networking.k8s.io/v1
 metadata:
   name: demoapp
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
     - host: demoapp.<myip>.nip.io
@@ -14,3 +16,7 @@ spec:
               name: demoapp
               port:
                 number: 8080
+  tls:
+  - hosts:
+    - demoapp.<myip>.nip.io
+    secretName: demoapp-tls
